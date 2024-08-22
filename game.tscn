@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://bylldi3qw7cyi"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_tp054"]
+[ext_resource type="Texture2D" uid="uid://bvm4q1snesfcw" path="res://icon.svg" id="1_xolgp"]
+[ext_resource type="PackedScene" uid="uid://duserl47xtewm" path="res://platform.tscn" id="2_ncgk2"]
+[ext_resource type="PackedScene" uid="uid://btlkpitelmn7i" path="res://action_remap_button.tscn" id="4_iqpri"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57ytx"]
+size = Vector2(128, 128)
+
+[node name="Game" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(603, 172)
+script = ExtResource("1_tp054")
+
+[node name="Icon" type="Sprite2D" parent="Player"]
+texture = ExtResource("1_xolgp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_57ytx")
+
+[node name="Platform" parent="." instance=ExtResource("2_ncgk2")]
+position = Vector2(799, 552)
+constant_linear_velocity = Vector2(0, 0)
+
+[node name="Platform2" parent="." instance=ExtResource("2_ncgk2")]
+position = Vector2(499, 617)
+constant_linear_velocity = Vector2(0, 0)
+
+[node name="Platform3" parent="." instance=ExtResource("2_ncgk2")]
+position = Vector2(502, 468)
+scale = Vector2(1.52, 1)
+constant_linear_velocity = Vector2(0, 0)
+
+[node name="ActionRemapButton" parent="." instance=ExtResource("4_iqpri")]
+
+[node name="LeftActionRemapButton2" parent="." instance=ExtResource("4_iqpri")]
+offset_left = 15.0
+offset_top = 61.0
+offset_right = 86.0
+offset_bottom = 92.0
+action_name = "move_left"
+
+[node name="ActionRemapButton2" parent="." instance=ExtResource("4_iqpri")]
+offset_left = 12.0
+offset_top = 122.0
+offset_right = 83.0
+offset_bottom = 153.0
+action_name = "move_right"

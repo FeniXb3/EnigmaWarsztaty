@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://btlkpitelmn7i"]
+
+[ext_resource type="Script" path="res://action_remap_button.gd" id="1_4i51a"]
+
+[node name="ActionRemapButton" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Przycisk"
+script = ExtResource("1_4i51a")
+action_name = "jump"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
