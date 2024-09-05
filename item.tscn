@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://giybik253hhp"]
+
+[ext_resource type="Script" path="res://item.gd" id="1_418g1"]
+[ext_resource type="Texture2D" uid="uid://bvm4q1snesfcw" path="res://icon.svg" id="1_vvmko"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5n02v"]
+size = Vector2(128, 128)
+
+[node name="Item" type="Area2D"]
+script = ExtResource("1_418g1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 0, 1)
+texture = ExtResource("1_vvmko")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5n02v")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
